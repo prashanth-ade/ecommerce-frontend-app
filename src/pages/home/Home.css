@@ -1,0 +1,458 @@
+/* ============================= */
+/* GLOBAL HOME PAGE */
+/* ============================= */
+
+.home-page {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* ============================= */
+/* TOP OFFER BAR */
+/* ============================= */
+
+.offer-bar {
+  background: #111111;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.offer-bar p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.fashion-hero {
+  min-height: 650px;
+  background-image:
+    url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=85");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+.fashion-hero-content {
+  max-width: 650px;
+  color: white;
+}
+
+.hero-subtitle {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.fashion-hero-content h1 {
+  font-size: 65px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.fashion-hero-content h1 span {
+  display: block;
+}
+
+.fashion-hero-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.primary-btn,
+.secondary-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: white;
+  color: black;
+}
+
+.primary-btn:hover {
+  background: black;
+  color: white;
+}
+
+.secondary-btn {
+  border: 1px solid white;
+  color: white;
+}
+
+.secondary-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* ============================= */
+/* COMMON SECTION */
+/* ============================= */
+
+.categories-section,
+.featured-section {
+  padding: 80px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading p {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+/* ============================= */
+/* CATEGORY SECTION */
+/* ============================= */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 25px;
+  color: white;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.category-overlay h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.category-overlay span {
+  font-size: 14px;
+}
+
+/* ============================= */
+/* FEATURED PRODUCTS */
+/* ============================= */
+
+.featured-section {
+  background: #f7f7f7;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-image {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sale-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-info h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: #f5a623;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.old-price {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.add-cart-btn {
+  width: 100%;
+  border: none;
+  background: black;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.add-cart-btn:hover {
+  opacity: 0.8;
+}
+
+.view-products {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.view-products a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* OFFER BANNER */
+/* ============================= */
+
+.fashion-offer {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=85");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.fashion-offer-content p {
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.fashion-offer-content h2 {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.fashion-offer-content h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+/* ============================= */
+/* BENEFITS */
+/* ============================= */
+
+.benefits-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 70px 8%;
+  gap: 30px;
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.benefit h3 {
+  margin-bottom: 8px;
+}
+
+.benefit p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .category-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fashion-hero-content h1 {
+    font-size: 50px;
+  }
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .fashion-hero {
+    min-height: 550px;
+  }
+
+  .hero-overlay {
+    min-height: 550px;
+    padding: 40px 20px;
+  }
+
+  .fashion-hero-content h1 {
+    font-size: 42px;
+  }
+
+  .fashion-hero-content p {
+    font-size: 16px;
+  }
+
+  .categories-section,
+  .featured-section {
+    padding: 60px 20px;
+  }
+
+  .category-grid,
+  .product-grid,
+  .benefits-section {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    height: 420px;
+  }
+
+  .product-image {
+    height: 380px;
+  }
+
+  .fashion-offer-content {
+    padding: 20px;
+  }
+
+  .fashion-offer-content h2 {
+    font-size: 40px;
+  }
+
+  .fashion-offer-content h3 {
+    font-size: 18px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .offer-bar p {
+    font-size: 12px;
+  }
+}

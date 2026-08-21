@@ -1,0 +1,119 @@
+.profile-page {
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 60px 20px;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.profile-header {
+  background: #111;
+  color: white;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.profile-header h1 {
+  margin-bottom: 8px;
+}
+
+.profile-header p {
+  color: #ccc;
+}
+
+.profile-card {
+  background: white;
+  padding: 40px;
+}
+
+.profile-card h2 {
+  margin-bottom: 8px;
+}
+
+.profile-subtitle {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.profile-form-group {
+  margin-bottom: 20px;
+}
+
+.profile-form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-form-group input,
+.profile-form-group textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.profile-form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.profile-form-group input:focus,
+.profile-form-group textarea:focus {
+  outline: none;
+  border-color: black;
+}
+
+.profile-save-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-save-btn:hover {
+  opacity: 0.85;
+}
+
+.profile-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 30px 15px;
+  }
+
+  .profile-header {
+    padding: 25px;
+  }
+
+  .profile-card {
+    padding: 25px;
+  }
+}

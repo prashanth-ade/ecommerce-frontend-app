@@ -1,0 +1,154 @@
+.cart-page {
+  padding: 60px 8%;
+  background: #f8f8f8;
+  min-height: 100vh;
+}
+
+.cart-page > h1 {
+  margin-bottom: 30px;
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 140px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.cart-item-info h3 {
+  margin-bottom: 10px;
+}
+
+.cart-item-info p {
+  margin-bottom: 8px;
+}
+
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.cart-quantity button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cart-quantity span {
+  width: 40px;
+  text-align: center;
+}
+
+.cart-item-right {
+  text-align: right;
+}
+
+.remove-btn {
+  margin-top: 20px;
+  border: none;
+  background: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+.cart-summary {
+  height: fit-content;
+  background: white;
+  padding: 30px;
+}
+
+.cart-summary h2 {
+  margin-bottom: 25px;
+}
+
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  background: black;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.empty-cart {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-cart h1 {
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  margin-bottom: 25px;
+}
+
+.empty-cart a {
+  background: black;
+  color: white;
+  padding: 14px 25px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 30px 20px;
+  }
+
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 130px;
+  }
+
+  .cart-item-right {
+    grid-column: 2;
+    text-align: left;
+  }
+}
