@@ -200,3 +200,20 @@
     flex-direction: column;
   }
 }
+
+.product-error {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-error h2 {
+  margin-bottom: 10px;
+}
+
+.product-error p {
+  color: #777;
+}

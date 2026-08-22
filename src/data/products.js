@@ -1,4 +1,5 @@
 const products = [
+  // MEN
   {
     id: 1,
     name: "Classic Black Jacket",
@@ -7,75 +8,177 @@ const products = [
     oldPrice: 3999,
     image:
       "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
-    description:
-      "A stylish classic black jacket for everyday fashion.",
+    description: "Stylish black jacket for everyday fashion.",
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black"],
   },
   {
     id: 2,
-    name: "Women's Elegant Dress",
-    category: "Women",
-    price: 2499,
-    oldPrice: 3299,
-    image:
-      "https://images.unsplash.com/photo-1566174053879-31528523f8ae",
-    description:
-      "An elegant dress suitable for parties and special occasions.",
-    sizes: ["S", "M", "L"],
-    colors: ["Red", "Black"],
-  },
-  {
-    id: 3,
     name: "Casual White T-Shirt",
     category: "Men",
     price: 999,
     oldPrice: 1499,
     image:
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
-    description:
-      "Comfortable casual white t-shirt for daily wear.",
+    description: "Comfortable casual t-shirt for daily wear.",
     sizes: ["S", "M", "L", "XL"],
     colors: ["White", "Black"],
   },
+
+  // WOMEN
   {
-    id: 4,
-    name: "Denim Blue Jeans",
-    category: "Men",
-    price: 1999,
-    oldPrice: 2799,
+    id: 3,
+    name: "Women's Elegant Dress",
+    category: "Women",
+    price: 2499,
+    oldPrice: 3299,
     image:
-      "https://images.unsplash.com/photo-1542272604-787c3835535d",
-    description:
-      "Modern blue denim jeans with a comfortable fit.",
-    sizes: ["30", "32", "34", "36"],
-    colors: ["Blue"],
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae",
+    description: "Elegant dress for parties and special occasions.",
+    sizes: ["S", "M", "L"],
+    colors: ["Red", "Black"],
   },
   {
-    id: 5,
+    id: 4,
     name: "Women's Fashion Handbag",
-    category: "Accessories",
+    category: "Women",
     price: 1799,
     oldPrice: 2299,
     image:
       "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
-    description:
-      "A fashionable handbag for everyday use.",
+    description: "Fashionable handbag for everyday use.",
     sizes: ["Standard"],
     colors: ["Brown", "Black"],
   },
+
+  // KIDS
+  {
+    id: 5,
+    name: "Kids Casual T-Shirt",
+    category: "Kids",
+    price: 699,
+    oldPrice: 999,
+    image:
+      "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea",
+    description: "Comfortable and colorful casual t-shirt for kids.",
+    sizes: ["4-5 Years", "6-7 Years", "8-9 Years"],
+    colors: ["Blue", "Yellow"],
+  },
   {
     id: 6,
-    name: "Running Sneakers",
-    category: "Footwear",
-    price: 3499,
-    oldPrice: 4499,
+    name: "Kids Party Dress",
+    category: "Kids",
+    price: 1299,
+    oldPrice: 1799,
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-    description:
-      "Comfortable and stylish sneakers for daily wear.",
-    sizes: ["7", "8", "9", "10"],
-    colors: ["Red", "White"],
+      "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7",
+    description: "Beautiful party dress for kids.",
+    sizes: ["4-5 Years", "6-7 Years"],
+    colors: ["Pink"],
+  },
+
+  // ELECTRONICS
+  {
+    id: 7,
+    name: "Wireless Bluetooth Headphones",
+    category: "Electronics",
+    price: 1999,
+    oldPrice: 2999,
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+    description: "High quality wireless headphones with clear sound.",
+    sizes: ["Standard"],
+    colors: ["Black"],
+  },
+  {
+    id: 8,
+    name: "Smart Watch",
+    category: "Electronics",
+    price: 3499,
+    oldPrice: 4999,
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+    description: "Modern smart watch with fitness tracking features.",
+    sizes: ["Standard"],
+    colors: ["Black", "Silver"],
+  },
+
+  // MOBILES
+  {
+    id: 9,
+    name: "Smartphone 5G",
+    category: "Mobiles",
+    price: 24999,
+    oldPrice: 27999,
+    image:
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa",
+    description: "Fast and powerful 5G smartphone.",
+    sizes: ["128GB", "256GB"],
+    colors: ["Black", "Blue"],
+  },
+  {
+    id: 10,
+    name: "Wireless Charger",
+    category: "Mobiles",
+    price: 1499,
+    oldPrice: 1999,
+    image:
+      "https://images.unsplash.com/photo-1587033411391-5d9e51cce126",
+    description: "Fast wireless charger for compatible smartphones.",
+    sizes: ["Standard"],
+    colors: ["White", "Black"],
+  },
+
+  // FURNITURE
+  {
+    id: 11,
+    name: "Modern Wooden Chair",
+    category: "Furniture",
+    price: 4999,
+    oldPrice: 6499,
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    description: "Comfortable modern chair for your home.",
+    sizes: ["Standard"],
+    colors: ["Brown"],
+  },
+  {
+    id: 12,
+    name: "Comfortable Sofa",
+    category: "Furniture",
+    price: 18999,
+    oldPrice: 22999,
+    image:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+    description: "Comfortable sofa for your living room.",
+    sizes: ["3 Seater"],
+    colors: ["Grey"],
+  },
+
+  // KITCHEN
+  {
+    id: 13,
+    name: "Non-Stick Cookware Set",
+    category: "Kitchen",
+    price: 2999,
+    oldPrice: 3999,
+    image:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba",
+    description: "Premium non-stick cookware set for daily cooking.",
+    sizes: ["5 Pieces"],
+    colors: ["Black"],
+  },
+  {
+    id: 14,
+    name: "Electric Blender",
+    category: "Kitchen",
+    price: 2499,
+    oldPrice: 3299,
+    image:
+      "https://images.unsplash.com/photo-1570222094114-d054a817e56b",
+    description: "Powerful blender for smoothies and kitchen use.",
+    sizes: ["Standard"],
+    colors: ["Black", "Silver"],
   },
 ];
 

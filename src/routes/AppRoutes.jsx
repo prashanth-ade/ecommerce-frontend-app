@@ -14,6 +14,8 @@ import Register from "../pages/auth/Register";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import Orders from "../pages/orders/Orders";
 import Profile from "../pages/profile/Profile";
+import NotFound from "../pages/notFound/notFound";
+import Contact from "../pages/contactUs/Contact";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +24,7 @@ const AppRoutes = () => {
         <Route index element={<Home />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<ProductDetails />} ></Route>
+        <Route path="contact" element={<Contact />} />
         <Route path="cart" element={<Cart />} />
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="checkout" element={ 
@@ -41,6 +44,7 @@ const AppRoutes = () => {
         <Route path="order-success" element={<OrderSuccess />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="*" element={<NotFound /> } />
       </Route>
     </Routes>
   );

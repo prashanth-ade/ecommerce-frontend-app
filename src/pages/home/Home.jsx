@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import products from "../../data/products";
 import ProductCard from "../../components/products/ProductCard";
+import { getAllProducts } from "../../services/products";
 
 const Home = () => {
 
@@ -64,6 +65,8 @@ const Home = () => {
 //         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
 //     },
 //   ];
+
+  getAllProducts();
 
   return (
     <div className="home-page">

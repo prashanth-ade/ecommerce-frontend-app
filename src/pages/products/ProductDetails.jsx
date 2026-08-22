@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./ProductDetails.css";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
-import products from "../../data/products";
+import Loader from "../../components/common/Loader";
+// import products from "../../data/products";
+import { getProductById } from "../../services/products";
+import NotFound from "../notFound/notFound";
 
 
 const ProductDetails = () => {
@@ -13,6 +16,11 @@ const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState("Black");
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
+
+
+  const [error, setError] = useState("");
+  const [product, setProduct] = useState("");
+  const[loading, setLoading] = useState(true);
 
     const {
     wishlistItems,
@@ -24,71 +32,59 @@ const ProductDetails = () => {
   (item) => item.id === product?.id
 );
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
 
-const handleWishlist = () => {
-  if (isInWishlist) {
-    removeFromWishlist(product.id);
-  } else {
-    addToWishlist(product);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleWishlist = () => {
+    if (isInWishlist) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
+
+  
+  useEffect(() => {
+  const fetchProduct = async () => {
+    try {
+      setLoading(true);
+
+      const data = await getProductById(id);
+
+      setProduct(data);
+    } catch (error) {
+      setError("Failed to load product details.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProduct();
+}, [id]);
+
+  if (loading) {
+    return (
+      <Loader text="Loading product details..." />
+    );
   }
-};
 
+  if (error) {
+    return (
+      <div className="product-error">
+        <h2>Something went wrong</h2>
 
-
-  // Temporary product data
-//   const products = [
-//     {
-//       id: 1,
-//       name: "Classic Black Jacket",
-//       category: "Men",
-//       price: 2499,
-//       oldPrice: 3499,
-//       image:
-//         "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
-//       description:
-//         "A stylish and comfortable black jacket designed for everyday fashion. Perfect for casual and modern looks.",
-//     },
-//     {
-//       id: 2,
-//       name: "Premium Casual Shirt",
-//       category: "Men",
-//       price: 1299,
-//       oldPrice: 1799,
-//       image:
-//         "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=80",
-//       description:
-//         "Premium quality casual shirt with a modern fit and comfortable fabric.",
-//     },
-//     {
-//       id: 3,
-//       name: "Women's Fashion Dress",
-//       category: "Women",
-//       price: 1999,
-//       oldPrice: 2799,
-//       image:
-//         "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80",
-//       description:
-//         "Elegant fashion dress designed for a stylish and modern appearance.",
-//     },
-//     {
-//       id: 4,
-//       name: "Stylish Sneakers",
-//       category: "Accessories",
-//       price: 2999,
-//       oldPrice: 3999,
-//       image:
-//         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
-//       description:
-//         "Comfortable and stylish sneakers suitable for everyday fashion.",
-//     },
-//   ];
-
-  const product = products.find(
-    (item) => item.id === Number(id)
-  );
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   if (!product) {
-    return <h2>Product Not Found</h2>;
+    return <NotFound />;
   }
 
   const increaseQuantity = () => {

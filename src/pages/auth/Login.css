@@ -75,3 +75,8 @@
   color: black;
   font-weight: bold;
 }
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

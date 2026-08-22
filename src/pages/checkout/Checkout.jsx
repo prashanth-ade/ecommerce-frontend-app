@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { toast } from "react-toastify";
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -32,7 +33,7 @@ const handleSubmit = (event) => {
   event.preventDefault();
 
   if (cartItems.length === 0) {
-    alert("Your cart is empty!");
+    toast.error("Your cart is empty!")
     return;
   }
 

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 import "./Login.css";
 
 const Login = () => {
@@ -20,6 +21,7 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmittin] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,6 +33,7 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
+    setIsSubmittin(true);
     event.preventDefault();
 
     setError("");
@@ -46,12 +49,15 @@ const Login = () => {
 
     if (!foundUser) {
       setError("Invalid email or password!");
+      setIsSubmittin(false);
       return;
     }
 
+    setIsSubmittin(true);
+
     login(foundUser);
 
-    alert(`Welcome back, ${foundUser.name}!`);
+    toast.success(`Welcome back, ${foundUser.name}`);
 
     const from =
         location.state?.from?.pathname || "/";
@@ -107,8 +113,11 @@ const Login = () => {
           <button
             type="submit"
             className="login-btn"
+            disabled={isSubmitting}
           >
-            Login
+            {isSubmitting
+              ? "Logging in..."
+              : "Login"}
           </button>
         </form>
 

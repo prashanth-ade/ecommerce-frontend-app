@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./Register.css";
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
   });
 
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,6 +26,7 @@ const Register = () => {
   };
 
   const handleSubmit = (event) => {
+    setIsSubmitting(true);
     event.preventDefault();
 
     setError("");
@@ -48,6 +51,8 @@ const Register = () => {
 
     if (existingUser) {
       setError("User already exists with this email!");
+      // toast.error("Email already registrated");
+      setIsSubmitting(false);
       return;
     }
 
@@ -63,7 +68,7 @@ const Register = () => {
       JSON.stringify([...users, newUser])
     );
 
-    alert("Registration successful!");
+    toast.success("Registration Successful!");
 
     navigate("/login");
   };
@@ -156,8 +161,11 @@ const Register = () => {
             <button
               type="submit"
               className="register-btn"
+              disabled={isSubmitting}
             >
-              Create Account
+              {isSubmitting
+                ? "Creating Account..."
+                : "Create Account"}
             </button>
           </form>
 

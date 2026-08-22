@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 import "./Profile.css";
 
 const Profile = () => {
@@ -12,7 +13,7 @@ const Profile = () => {
     address: user?.address || "",
   });
 
-  const [success, setSuccess] = useState("");
+  // const [success, setSuccess] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,11 +50,13 @@ const Profile = () => {
       JSON.stringify(updatedUsers)
     );
 
-    setSuccess("Profile updated successfully!");
+    toast.success("Profile Updated Successfully!");
 
-    setTimeout(() => {
-      setSuccess("");
-    }, 3000);
+    // setSuccess("Profile updated successfully!");
+
+    // setTimeout(() => {
+    //   setSuccess("");
+    // }, 3000);
   };
 
   return (
@@ -78,11 +81,11 @@ const Profile = () => {
             Update your personal information.
           </p>
 
-          {success && (
+          {/* {success && (
             <div className="profile-success">
               {success}
             </div>
-          )}
+          )} */}
 
           <form onSubmit={handleSubmit}>
 

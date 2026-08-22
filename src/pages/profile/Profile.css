@@ -97,12 +97,12 @@
   opacity: 0.85;
 }
 
-.profile-success {
+/* .profile-success {
   background: #e8f5e9;
   color: #2e7d32;
   padding: 12px;
   margin-bottom: 20px;
-}
+} */
 
 @media (max-width: 768px) {
   .profile-page {

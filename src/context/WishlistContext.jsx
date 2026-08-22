@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const WishlistContext = createContext();
 
@@ -26,21 +27,31 @@ export const WishlistProvider = ({ children }) => {
   };
 
   const toggleWishlist = (product) => {
-    setWishlistItems((currentItems) => {
-      const exists = currentItems.some(
-        (item) => item.id === product.id
+    const exists = wishlistItems.some(
+      (item) => item.id === product.id
+    );
+
+    if (exists) {
+      setWishlistItems((previousItems) =>
+        previousItems.filter(
+          (item) => item.id !== product.id
+        )
       );
 
-      if (exists) {
-        return currentItems.filter(
-          (item) => item.id !== product.id
-        );
-      }
+      toast.info(
+        `${product.name} removed from wishlist`
+      );
+    } else {
+      setWishlistItems((previousItems) => [
+        ...previousItems,
+        product,
+      ]);
 
-      return [...currentItems, product];
-    });
+      toast.success(
+        `${product.name} added to wishlist!`
+      );
+    }
   };
-
   return (
     <WishlistContext.Provider
       value={{

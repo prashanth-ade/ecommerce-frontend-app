@@ -1,85 +1,225 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import {
-  FaSearch,
+  FaBars,
+  FaTimes,
+  FaShoppingBag,
   FaHeart,
-  FaShoppingCart,
   FaUser,
 } from "react-icons/fa";
-import { WishlistContext } from "../../context/WishlistContext";
+
 import { AuthContext } from "../../context/AuthContext";
+import { CartContext } from "../../context/CartContext";
+import { WishlistContext } from "../../context/WishlistContext";
+
+import "./Navbar.css";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const { cartCount } = useContext(CartContext);
+  const { user, logout } = useContext(AuthContext);
 
-    const {wishlistCount } = useContext(WishlistContext);
+  const { cartItems } = useContext(CartContext);
 
-    const { user, logout } = useContext(AuthContext);
+  const { wishlistItems } =
+    useContext(WishlistContext);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const cartCount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const wishlistCount = wishlistItems.length;
+
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+  };
 
   return (
     <header className="navbar">
-      <div className="navbar-top">
-        <div className="logo">
-          <Link to="/">WEBTECHYS</Link>
-        </div>
+      <div className="navbar-container">
 
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search for  products..."
-          />
-          <button>
-            <FaSearch />
-          </button>
-        </div>
+        {/* LOGO */}
 
-        <div className="navbar-icons">
+        <Link
+          to="/"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
+          WEBTECHYS
+        </Link>
 
-          <Link to="/wishlist" className="wishlist-icon">
-            <FaHeart />
-            <span>{wishlistCount}</span>
-          </Link>
+        {/* MOBILE MENU BUTTON */}
 
-          <Link to="/cart" className="cart-icon">
-            <FaShoppingCart />
-            <span>{cartCount}</span>
-          </Link>
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-            {user ? (
-            <div className="user-menu">
-                <Link to="/profile" className="user-name">
-                Hi, {user.name}
-                </Link>
+        {/* NAVIGATION */}
 
-                <Link to="/orders" className="orders-link">
-                My Orders
-                </Link>
+        <nav
+          className={`navbar-links ${
+            menuOpen ? "active" : ""
+          }`}
+        >
+          <NavLink
+            to="/"
+            end
+            onClick={closeMenu}
+          >
+            Home
+          </NavLink>
 
-                <button
-                className="logout-btn"
-                onClick={logout}
-                >
-                Logout
-                </button>
+          <NavLink
+            to="/products"
+            onClick={closeMenu}
+          >
+            Products
+          </NavLink>
+
+          <div className="category-dropdown">
+            <button
+              className="category-menu-btn"
+              type="button"
+            >
+              Categories ▼
+            </button>
+
+            <div className="category-dropdown-menu">
+              <Link to="/products">
+                All
+              </Link>
+
+              <Link to="/products?category=Men">
+                Men
+              </Link>
+
+              <Link to="/products?category=Women">
+                Women
+              </Link>
+
+              <Link to="/products?category=Kids">
+                Kids
+              </Link>
+
+              <Link to="/products?category=Electronics">
+                Electronics
+              </Link>
+
+              <Link to="/products?category=Mobiles">
+                Mobiles
+              </Link>
+
+              <Link to="/products?category=Furniture">
+                Furniture
+              </Link>
+
+              <Link to="/products?category=Kitchen">
+                Kitchen
+              </Link>
             </div>
-            ) : (
-            <Link to="/login" className="user-icon">
-                <FaUser />
-            </Link>
+          </div>
+
+          <NavLink
+              to="/contact"
+              onClick={closeMenu}
+            >
+              Contact Us
+            </NavLink>
+
+          {/* WISHLIST */}
+
+          <NavLink
+            to="/wishlist"
+            className="nav-icon"
+            onClick={closeMenu}
+          >
+            <FaHeart />
+
+            {wishlistCount > 0 && (
+              <span className="nav-count">
+                {wishlistCount}
+              </span>
             )}
 
-        </div>
-      </div>
+            <span className="mobile-link-text">
+              Wishlist
+            </span>
+          </NavLink>
 
-      <nav className="navbar-bottom">
-        <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/products">Categories</Link>
-        <Link to="/">Offers</Link>
-        <Link to="/">Contact</Link>
-      </nav>
+          {/* CART */}
+
+          <NavLink
+            to="/cart"
+            className="nav-icon"
+            onClick={closeMenu}
+          >
+            <FaShoppingBag />
+
+            {cartCount > 0 && (
+              <span className="nav-count">
+                {cartCount}
+              </span>
+            )}
+
+            <span className="mobile-link-text">
+              Cart
+            </span>
+          </NavLink>
+
+          {/* USER */}
+
+          {user ? (
+            <>
+              <NavLink
+                to="/profile"
+                className="user-name"
+                onClick={closeMenu}
+              >
+                <FaUser />
+                Hi, {user.name}
+              </NavLink>
+
+              <NavLink
+                to="/orders"
+                className="orders-link"
+                onClick={closeMenu}
+              >
+                My Orders
+              </NavLink>
+
+              <button
+                className="logout-btn"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <NavLink
+              to="/login"
+              className="user-icon"
+              onClick={closeMenu}
+            >
+              <FaUser />
+
+              <span className="mobile-link-text">
+                Login
+              </span>
+            </NavLink>
+          )}
+        </nav>
+
+      </div>
     </header>
   );
 };
