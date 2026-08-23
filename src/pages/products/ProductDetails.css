@@ -217,3 +217,140 @@
 .product-error p {
   color: #777;
 }
+
+.reviews-section {
+  max-width: 1200px;
+  margin: 70px auto 0;
+  padding: 40px 8%;
+  border-top: 1px solid #eee;
+}
+
+.reviews-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.review-summary {
+  background: #f7f7f7;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.average-rating h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.average-rating p {
+  color: #777;
+  margin-top: 10px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item {
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.review-header span {
+  letter-spacing: 2px;
+}
+
+.review-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.user-review-list {
+  margin-top: 25px;
+}
+
+.review-item h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.review-item small {
+  color: #888;
+  font-size: 12px;
+}
+
+.login-review-message {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.login-review-message p {
+  margin: 0;
+  color: #555;
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.review-actions button {
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+.review-actions button:hover {
+  opacity: 0.8;
+}
+
+.review-actions .delete-review-btn {
+  background: #c62828;
+}
+
+.already-reviewed {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.login-review-message a {
+  display: inline-block;
+  margin-top: 10px;
+  background: black;
+  color: white;
+  padding: 10px 18px;
+  text-decoration: none;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .reviews-section {
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+
+  .reviews-section h2 {
+    font-size: 23px;
+  }
+
+  .review-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
 import "./ProductCard.css";
+import Rating from "../common/Rating";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -24,7 +25,9 @@ const ProductCard = ({ product }) => {
             src={product.image}
             alt={product.name}
           />
+          
         </Link>
+       
 
         <button
           type="button"
@@ -43,6 +46,10 @@ const ProductCard = ({ product }) => {
         <Link to={`/products/${product.id}`}>
           <h3>{product.name}</h3>
         </Link>
+         <Rating
+          rating={product.rating}
+          reviews={product.reviews}
+        />
 
         <div className="product-card-price">
           <strong>₹{product.price}</strong>

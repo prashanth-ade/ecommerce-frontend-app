@@ -1,0 +1,82 @@
+.review-form {
+  margin-top: 40px;
+  padding: 30px;
+  border: 1px solid #eee;
+  background: #fafafa;
+}
+
+.review-form h3 {
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.review-rating-input {
+  margin-bottom: 20px;
+}
+
+.review-rating-input label,
+.review-input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.star-selector {
+  display: flex;
+  gap: 8px;
+  font-size: 25px;
+}
+
+.star-selector svg {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.star-selector svg:hover {
+  transform: scale(1.1);
+}
+
+.selected-star {
+  color: #f5b301;
+}
+
+.empty-star {
+  color: #ccc;
+}
+
+.review-input-group {
+  margin-bottom: 20px;
+}
+
+.review-input-group input,
+.review-input-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+}
+
+.review-input-group input:focus,
+.review-input-group textarea:focus {
+  border-color: black;
+}
+
+.review-input-group textarea {
+  resize: vertical;
+}
+
+.review-form button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.review-form button:hover {
+  opacity: 0.85;
+}

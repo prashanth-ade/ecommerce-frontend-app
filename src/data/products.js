@@ -11,6 +11,8 @@ const products = [
     description: "Stylish black jacket for everyday fashion.",
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 2,
@@ -23,6 +25,8 @@ const products = [
     description: "Comfortable casual t-shirt for daily wear.",
     sizes: ["S", "M", "L", "XL"],
     colors: ["White", "Black"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // WOMEN
@@ -37,6 +41,8 @@ const products = [
     description: "Elegant dress for parties and special occasions.",
     sizes: ["S", "M", "L"],
     colors: ["Red", "Black"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 4,
@@ -49,6 +55,8 @@ const products = [
     description: "Fashionable handbag for everyday use.",
     sizes: ["Standard"],
     colors: ["Brown", "Black"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // KIDS
@@ -63,6 +71,8 @@ const products = [
     description: "Comfortable and colorful casual t-shirt for kids.",
     sizes: ["4-5 Years", "6-7 Years", "8-9 Years"],
     colors: ["Blue", "Yellow"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 6,
@@ -75,6 +85,8 @@ const products = [
     description: "Beautiful party dress for kids.",
     sizes: ["4-5 Years", "6-7 Years"],
     colors: ["Pink"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // ELECTRONICS
@@ -89,6 +101,8 @@ const products = [
     description: "High quality wireless headphones with clear sound.",
     sizes: ["Standard"],
     colors: ["Black"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 8,
@@ -101,6 +115,8 @@ const products = [
     description: "Modern smart watch with fitness tracking features.",
     sizes: ["Standard"],
     colors: ["Black", "Silver"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // MOBILES
@@ -115,6 +131,8 @@ const products = [
     description: "Fast and powerful 5G smartphone.",
     sizes: ["128GB", "256GB"],
     colors: ["Black", "Blue"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 10,
@@ -127,6 +145,8 @@ const products = [
     description: "Fast wireless charger for compatible smartphones.",
     sizes: ["Standard"],
     colors: ["White", "Black"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // FURNITURE
@@ -141,6 +161,8 @@ const products = [
     description: "Comfortable modern chair for your home.",
     sizes: ["Standard"],
     colors: ["Brown"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 12,
@@ -153,6 +175,8 @@ const products = [
     description: "Comfortable sofa for your living room.",
     sizes: ["3 Seater"],
     colors: ["Grey"],
+    rating: 4.5,
+    reviews: 120,
   },
 
   // KITCHEN
@@ -167,6 +191,8 @@ const products = [
     description: "Premium non-stick cookware set for daily cooking.",
     sizes: ["5 Pieces"],
     colors: ["Black"],
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 14,
@@ -179,6 +205,8 @@ const products = [
     description: "Powerful blender for smoothies and kitchen use.",
     sizes: ["Standard"],
     colors: ["Black", "Silver"],
+    rating: 4.5,
+    reviews: 120,
   },
 ];
 

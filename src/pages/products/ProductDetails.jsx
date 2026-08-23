@@ -7,7 +7,10 @@ import Loader from "../../components/common/Loader";
 // import products from "../../data/products";
 import { getProductById } from "../../services/products";
 import NotFound from "../notFound/notFound";
-
+import Rating from "../../components/common/Rating";
+import ReviewForm from "./ReviewForm";
+import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -21,6 +24,49 @@ const ProductDetails = () => {
   const [error, setError] = useState("");
   const [product, setProduct] = useState("");
   const[loading, setLoading] = useState(true);
+
+  const [userReviews, setUserReviews] = useState([]);
+  const [editingReview, setEditingReview] = useState(null);
+  const { user } = useContext(AuthContext);
+
+  const handleAddReview = (newReview) => {
+    const reviewWithUser = {
+      ...newReview,
+      name: user.name,
+      userId: user.id,
+    };
+
+    setUserReviews([
+      reviewWithUser,
+    ]);
+  };
+
+  const handleDeleteReview = (reviewId) => {
+    setUserReviews((previousReviews) =>
+      previousReviews.filter(
+        (review) => review.id !== reviewId
+      )
+    );;
+  };
+
+  const handleEditReview = (review) => {
+    setEditingReview(review);
+  };
+
+  const handleUpdateReview = (updatedReview) => {
+  setUserReviews((previousReviews) =>
+    previousReviews.map((review) =>
+      review.id === updatedReview.id
+        ? {
+            ...review,
+            ...updatedReview,
+          }
+        : review
+    )
+  );
+
+  setEditingReview(null);
+};
 
     const {
     wishlistItems,
@@ -118,7 +164,10 @@ const ProductDetails = () => {
           <h1>{product.name}</h1>
 
           <div className="details-rating">
-            ★★★★★ <span>(24 Reviews)</span>
+            <Rating
+              rating={product.rating}
+              reviews={product.reviews}
+            />
           </div>
 
           <div className="details-price">
@@ -222,13 +271,151 @@ const ProductDetails = () => {
                 >
                 {isInWishlist ? "♥ Added to Wishlist" : "♡ Wishlist"}
             </button>
+
           </div>
+
+          
 
           <div className="product-extra-info">
             <p>🚚 Free delivery on orders above ₹999</p>
             <p>↩ Easy 7-day returns</p>
             <p>🔒 Secure payment</p>
           </div>
+
+          <section className="reviews-section">
+  <h2>Customer Reviews</h2>
+
+  <div className="review-summary">
+    <div className="average-rating">
+      <h3>{product.rating} / 5</h3>
+
+      <Rating
+        rating={product.rating}
+        reviews={product.reviews}
+      />
+
+      <p>
+        Based on {product.reviews} customer reviews
+      </p>
+    </div>
+  </div>
+
+  <div className="review-list">
+
+    <div className="review-item">
+      <div className="review-header">
+        <h4>Rahul Kumar</h4>
+
+        <span>★★★★★</span>
+      </div>
+
+      <p>
+        Great product! The quality is very good
+        and delivery was fast.
+      </p>
+    </div>
+
+    <div className="review-item">
+      <div className="review-header">
+        <h4>Anjali Sharma</h4>
+
+        <span>★★★★☆</span>
+      </div>
+
+      <p>
+        Good product and value for money.
+        I am happy with my purchase.
+      </p>
+    </div>
+
+    <div className="review-item">
+      <div className="review-header">
+        <h4>Vikram Reddy</h4>
+
+        <span>★★★★★</span>
+      </div>
+
+      <p>
+        Excellent quality. I would definitely
+        recommend this product.
+      </p>
+    </div>
+  </div>
+
+  
+
+  {user ? (
+  userReviews.length === 0 || editingReview ? (
+    <ReviewForm
+      onAddReview={handleAddReview}
+      editingReview={editingReview}
+      onUpdateReview={handleUpdateReview}
+    />
+  ) : (
+    <div className="already-reviewed">
+      <p>
+        You have already reviewed this product.
+      </p>
+    </div>
+  )
+) : (
+  <div className="login-review-message">
+    <p>
+      Please login to write a review.
+    </p>
+
+    <Link to="/login">
+      Login Now
+    </Link>
+  </div>
+)}
+
+{userReviews.map((review) => (
+  <div
+    className="review-item"
+    key={review.id}
+  >
+    <div className="review-header">
+      <div>
+        <h4>{review.name}</h4>
+
+        <small>{review.date}</small>
+      </div>
+
+      <span>
+        {"★".repeat(review.rating)}
+        {"☆".repeat(5 - review.rating)}
+      </span>
+    </div>
+
+    <h5>{review.title}</h5>
+
+    <p>{review.message}</p>
+
+    {user && review.userId === user.id && (
+      <div className="review-actions">
+        <button
+          onClick={() =>
+            handleEditReview(review)
+          }
+        >
+          Edit
+        </button>
+
+        <button
+          className="delete-review-btn"
+          onClick={() =>
+            handleDeleteReview(review.id)
+          }
+        >
+          Delete
+        </button>
+      </div>
+    )}
+  </div>
+))}
+
+</section>
         </div>
       </div>
     </div>
