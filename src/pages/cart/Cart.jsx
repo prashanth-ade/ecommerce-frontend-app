@@ -1,16 +1,34 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import CouponBox from "../../components/cart/CouponBox";
 import "./Cart.css";
 
 const Cart = () => {
+
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
   const {
     cartItems,
     increaseQuantity,
     decreaseQuantity,
     removeFromCart,
     cartTotal,
+    
   } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/checkout", {
+      state: {
+        appliedCoupon,
+        discount,
+        finalTotal,
+      },
+    });
+  };
+
+  
 
   if (cartItems.length === 0) {
     return (
@@ -24,6 +42,15 @@ const Cart = () => {
       </div>
     );
   }
+
+    const discount = appliedCoupon
+      ? appliedCoupon.discount
+      : 0;
+
+    const finalTotal = Math.max(
+      cartTotal - discount,
+      0
+    );
 
   return (
     <div className="cart-page">
@@ -88,7 +115,15 @@ const Cart = () => {
               </div>
             </div>
           ))}
+
+           <CouponBox
+          cartTotal={cartTotal}
+          appliedCoupon={appliedCoupon}
+          onApplyCoupon={setAppliedCoupon}
+        />
         </div>
+
+       
 
         <div className="cart-summary">
           <h2>Order Summary</h2>
@@ -98,6 +133,8 @@ const Cart = () => {
             <span>₹{cartTotal}</span>
           </div>
 
+          
+
           <div className="summary-row">
             <span>Delivery</span>
             <span>Free</span>
@@ -105,17 +142,33 @@ const Cart = () => {
 
           <hr />
 
-          <div className="summary-total">
-            <strong>Total</strong>
-            <strong>₹{cartTotal}</strong>
+          <div className="cart-summary-row">
+            <span>Subtotal</span>
+            <span>₹{cartTotal}</span>
           </div>
 
-          <Link
-            to="/checkout"
-            className="checkout-btn"
-            >
-            Proceed to Checkout
-            </Link>
+          {appliedCoupon && (
+            <div className="cart-summary-row discount-row">
+              <span>
+                Discount ({appliedCoupon.code})
+              </span>
+
+              <span>- ₹{discount}</span>
+            </div>
+          )}
+
+          <div className="cart-summary-row total-row">
+            <span>Total</span>
+            <span>₹{finalTotal}</span>
+          </div>
+
+        <button
+          type="button"
+          className="checkout-btn"
+          onClick={handleCheckout}
+        >
+          Proceed to Checkout
+        </button>
         </div>
       </div>
     </div>

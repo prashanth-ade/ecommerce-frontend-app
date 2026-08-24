@@ -146,6 +146,129 @@ const Home = () => {
         </div>
         </section>
 
+        {/* FEATURED CATEGORIES */}
+
+<section className="featured-categories">
+  <div className="section-header">
+    <p>EXPLORE OUR COLLECTIONS</p>
+
+    <h2>Shop by Category</h2>
+
+    <span>
+      Discover products from your favorite categories
+    </span>
+  </div>
+
+  <div className="categories-grid">
+
+    <Link
+      to="/products?category=Men"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1516826957135-700dedea698c"
+          alt="Men"
+        />
+      </div>
+
+      <h3>Men</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Women"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
+          alt="Women"
+        />
+      </div>
+
+      <h3>Women</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Kids"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9"
+          alt="Kids"
+        />
+      </div>
+
+      <h3>Kids</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Electronics"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1498049794561-7780e7231661"
+          alt="Electronics"
+        />
+      </div>
+
+      <h3>Electronics</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Mobiles"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa"
+          alt="Mobiles"
+        />
+      </div>
+
+      <h3>Mobiles</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Furniture"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
+          alt="Furniture"
+        />
+      </div>
+
+      <h3>Furniture</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+    <Link
+      to="/products?category=Kitchen"
+      className="category-card"
+    >
+      <div className="category-image">
+        <img
+          src="https://images.unsplash.com/photo-1556911220-bff31c812dba"
+          alt="Kitchen"
+        />
+      </div>
+
+      <h3>Kitchen</h3>
+      <p>Explore Collection →</p>
+    </Link>
+
+  </div>
+</section>
+
       {/* Offer Banner */}
       <section className="fashion-offer">
         <div className="fashion-offer-content">
