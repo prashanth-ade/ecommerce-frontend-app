@@ -4,6 +4,8 @@ import products from "../../data/products";
 import ProductCard from "../../components/products/ProductCard";
 import { getAllProducts } from "../../services/products";
 
+import SEO from "../../components/SEO/SEO";
+
 const Home = () => {
 
     const featuredProducts = products.slice(0, 5);
@@ -69,7 +71,16 @@ const Home = () => {
   getAllProducts();
 
   return (
+
+    
     <div className="home-page">
+
+      <SEO
+        title="Fashion Store | Online Shopping"
+        description="Shop the latest fashion, electronics, mobiles, furniture and kitchen products."
+        keywords="fashion store, online shopping, men's fashion, women's fashion, electronics"
+      />
+      
       {/* Top Offer */}
       <div className="offer-bar">
         <p>🔥 Summer Sale - Up to 50% OFF | Free Shipping on Orders Above ₹999</p>

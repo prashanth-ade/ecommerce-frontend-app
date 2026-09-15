@@ -4,10 +4,10 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 import "./Login.css";
+import SEO from "../../components/SEO/SEO";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -70,6 +70,13 @@ const Login = () => {
 
   return (
     <div className="login-page">
+
+      <SEO
+        title="Login | Fashion Store"
+        description="Login to your Fashion Store account."
+        keywords="fashion store login, ecommerce login"
+      />
+
       <div className="login-card">
         <h1>Welcome Back</h1>
 

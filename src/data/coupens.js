@@ -3,19 +3,22 @@ const coupons = [
     code: "SAVE10",
     type: "percentage",
     value: 10,
-    description: "10% discount on your order",
+    minOrder: 1000,
+    maxDiscount: 500,
   },
   {
     code: "SAVE20",
     type: "percentage",
     value: 20,
-    description: "20% discount on your order",
+    minOrder: 3000,
+    maxDiscount: 1000,
   },
   {
     code: "FLAT500",
-    type: "fixed",
+    type: "flat",
     value: 500,
-    description: "₹500 discount on your order",
+    minOrder: 5000,
+    maxDiscount: 500,
   },
 ];
 

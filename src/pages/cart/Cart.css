@@ -185,3 +185,53 @@
   cursor: pointer;
   font-size: 16px;
 }
+
+.coupon-section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.coupon-section h3 {
+  margin-bottom: 15px;
+}
+
+.coupon-input {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon-input input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.coupon-input button {
+  padding: 12px 20px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.coupon-message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.discount-row {
+  color: green;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .coupon-input {
+    flex-direction: column;
+  }
+
+  .coupon-input button {
+    width: 100%;
+  }
+}

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+
+import SEO from "../../components/SEO/SEO";
 import "./Contact.css";
 
 const Contact = () => {
@@ -34,6 +36,13 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+
+      <SEO
+        title="Contact Us | Fashion Store"
+        description="Contact Fashion Store for support, product information and customer service."
+        keywords="contact fashion store, customer support, ecommerce support"
+      />
+
       <div className="contact-header">
         <h1>Contact Us</h1>
 

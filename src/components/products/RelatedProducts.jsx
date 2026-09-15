@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import products from "../../data/products";
+import { getAllProducts } from "../../services/products"; 
 import "./RelatedProducts.css";
 
 const RelatedProducts = ({ currentProduct }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      const data = await getAllProducts();
+      setProducts(data);
+    };
+
+    loadProducts();
+  }, []);
+
+  if (!currentProduct) {
+    return null;
+  }
+
   const relatedProducts = products
     .filter(
       (product) =>

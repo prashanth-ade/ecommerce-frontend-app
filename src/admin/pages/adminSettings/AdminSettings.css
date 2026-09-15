@@ -1,0 +1,208 @@
+.admin-settings-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f5f6fa;
+}
+
+/* Header */
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.settings-header p {
+  margin-top: 8px;
+  color: #666;
+}
+
+.settings-dashboard-btn {
+  border: none;
+  padding: 11px 20px;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.settings-dashboard-btn:hover {
+  opacity: 0.85;
+}
+
+/* Container */
+
+.settings-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Form */
+
+.settings-form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.settings-form h2 {
+  margin: 0 0 25px;
+  font-size: 22px;
+}
+
+/* Fields */
+
+.settings-field {
+  margin-bottom: 20px;
+}
+
+.settings-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.settings-field input,
+.settings-field textarea,
+.settings-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+}
+
+.settings-field input:focus,
+.settings-field textarea:focus,
+.settings-field select:focus {
+  border-color: #222;
+}
+
+.settings-field textarea {
+  resize: vertical;
+}
+
+/* Maintenance */
+
+.maintenance-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.maintenance-setting h3 {
+  margin: 0 0 5px;
+}
+
+.maintenance-setting p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Toggle */
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #222;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Save */
+
+.save-settings-btn {
+  width: 100%;
+  border: none;
+  padding: 13px;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-settings-btn:hover {
+  opacity: 0.85;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .admin-settings-page {
+    padding: 15px;
+  }
+
+  .settings-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .settings-header h1 {
+    font-size: 24px;
+  }
+
+  .settings-dashboard-btn {
+    width: 100%;
+  }
+
+  .settings-form {
+    padding: 20px;
+  }
+
+  .maintenance-setting {
+    align-items: flex-start;
+  }
+}

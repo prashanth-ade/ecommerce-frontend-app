@@ -12,6 +12,7 @@ import ReviewForm from "./ReviewForm";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import RelatedProducts from "../../components/products/RelatedProducts";
+import SEO from "../../components/SEO/SEO";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -152,6 +153,13 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details-page">
+
+      <SEO
+        title={`${product.name} | Fashion Store`}
+        description={product.description}
+        keywords={`${product.name}, ${product.category}, fashion store, online shopping`}
+      />
+
       <div className="product-details-container">
 
         {/* Product Image */}

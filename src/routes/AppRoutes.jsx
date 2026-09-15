@@ -16,6 +16,17 @@ import Orders from "../pages/orders/Orders";
 import Profile from "../pages/profile/Profile";
 import NotFound from "../pages/notFound/notFound";
 import Contact from "../pages/contactUs/Contact";
+import Payment from "../pages/payment/Payment";
+
+import AdminLogin from "../admin/pages/adminLogin/AdminLogin";
+import AdminDashboard from "../admin/pages/adminDashboard/AdminDashboard";
+import AdminProducts from "../admin/pages/adminProducts/AdminProducts";
+import AdminInventory from "../admin/pages/adminInventory/AdminInventory";
+import AdminOrders from "../admin/pages/adminOrders/AdminOrders";
+import AdminCustomers from "../admin/pages/adminCustomers/AdminCustomers";
+import AdminReviews from "../admin/pages/adminReviews/AdminReviews";
+import AdminReports from "../admin/pages/adminReports/AdminReports";
+import AdminSettings from "../admin/pages/adminSettings/AdminSettings";
 
 const AppRoutes = () => {
   return (
@@ -45,7 +56,22 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="*" element={<NotFound /> } />
+        <Route
+          path="/payment"
+          element={<Payment />}
+        />
       </Route>
+
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/products" element= {<AdminProducts />} />
+      <Route path="/admin/inventory" element= {<AdminInventory />} />
+      <Route path="/admin/orders" element={<AdminOrders />} />
+      <Route path="admin/customers" element={<AdminCustomers />} />
+      <Route path="admin/reviews" element={<AdminReviews />} />
+      <Route path="admin/reports" element={<AdminReports />} />
+      <Route path="admin/settings" element={<AdminSettings />} />
+
     </Routes>
   );
 };

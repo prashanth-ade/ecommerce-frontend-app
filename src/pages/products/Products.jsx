@@ -4,6 +4,8 @@ import ProductCard from "../../components/products/ProductCard";
 import Loader from "../../components/common/Loader";
 import { getAllProducts } from "../../services/products";
 import { useSearchParams } from "react-router-dom";
+
+import SEO from "../../components/SEO/SEO";
 import "./Products.css";
 
 const Products = () => {
@@ -180,6 +182,13 @@ const Products = () => {
 
   return (
     <div className="products-page">
+
+      <SEO
+        title="Products | Fashion Store"
+        description="Browse our collection of fashion, electronics, mobiles, furniture and kitchen products."
+        keywords="products, fashion products, electronics, mobiles, furniture, kitchen"
+      />
+
       <div className="products-header">
         <h1>
           Our Products

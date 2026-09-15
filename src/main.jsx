@@ -8,28 +8,32 @@ import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
-          <WishlistProvider>
-            <App />
-
-            <ToastContainer
-              position="top-right"
-              autoClose={2500}
-              hideProgressBar={false}
-              newestOnTop
-              closeOnClick
-              pauseOnHover
-              draggable
-            />
-          </WishlistProvider>
-        </CartProvider>
-      </AuthProvider>
+      
+        <AuthProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <HelmetProvider>
+                <App />
+              </HelmetProvider>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={2500}
+                  hideProgressBar={false}
+                  newestOnTop
+                  closeOnClick
+                  pauseOnHover
+                  draggable
+                />
+              
+            </WishlistProvider>
+          </CartProvider>
+        </AuthProvider>
     </BrowserRouter>
   </StrictMode>
 );
